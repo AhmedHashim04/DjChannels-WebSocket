@@ -11,6 +11,7 @@ class Room(models.Model):
         return self.name
 
 class Message(models.Model):
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='messages')
     room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='messages')
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
