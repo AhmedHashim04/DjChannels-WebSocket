@@ -7,4 +7,4 @@ cd tms
 python3 -m venv .venv
 source .venv/bin/activate
 pip install django djangorestframework channels_redis channels
-django-admin startproject project
+django-admin startproject project .
