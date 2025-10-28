@@ -1,5 +1,7 @@
 # DjChannels-WebSocket
-This repo demonstrate that i had learned Django Channels and WebSocket
+ a simple real-time chat system using Django REST Framework and Django
+Channels, while applying performance optimization techniques such as caching,
+pagination, and indexing
 
 ```bash
 mkdir tms
