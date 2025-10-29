@@ -3,17 +3,17 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
-        print(self.scope)
+        # print(self.scope)
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = f'chat_{self.room_name}'
 
         if not self.room_name:
             await self.close()
             return
-        
-        if self.scope["user"].is_anonymous:
-            await self.close()
-            return
+
+        # if self.scope["user"].is_anonymous:
+        #     await self.close()
+        #     return
 
         # Create room group if it doesn't exist and add user to the group
         await self.channel_layer.group_add(

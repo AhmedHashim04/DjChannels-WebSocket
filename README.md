@@ -8,8 +8,9 @@ mkdir tms
 cd tms
 python3 -m venv .venv
 source .venv/bin/activate
-pip install django djangorestframework channels_redis channels
+pip install django djangorestframework channels_redis channels daphne
 django-admin startproject project .
+daphne project.asgi:application
 ```
 
 ![alt text](code.png)
@@ -20,3 +21,4 @@ django-admin startproject project .
 ![alt text](<image-copy.png>) 
 ![alt text](image.png)
 ![alt text](image-prob.png)
+![alt text](sol.png)

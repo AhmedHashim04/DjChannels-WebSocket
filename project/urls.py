@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import create_room, get_rooms, get_messages
+from app.views import create_room, get_rooms, get_messages, send_message
 
 
 urlpatterns = [

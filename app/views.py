@@ -54,31 +54,3 @@ def get_messages(request, room_name):
 
     cache.set(cache_key, messages_list, timeout=300)  #  5m
     return Response({'messages': messages_list})
-
-
-@api_view(['POST'])
-def send_message(request):
-    """
-    Handles sending a new message to a chat room.
-    This view function processes POST requests to create a new message and updates the cache for the room.
-    """
-    room_name = request.data.get('room_name')
-    content = request.data.get('content')
-    if not room_name or not content:
-        return Response({'status': 'Invalid request', 'error': 'Room name and content are required'})
-    try:
-        room = Room.objects.get(name=room_name)
-        message = Message.objects.create(room=room, content=content)
-
-        # Update the cache for the room
-        cache_key = f"room_{room_name}_messages"
-
-        cached_messages = cache.get(cache_key) or []
-        cached_messages = [message.content] + cached_messages[:9]  # only last 10 messages
-        cache.set(cache_key, cached_messages, timeout=300)
-        return Response({'status': 'Message sent'})
-    
-    except:
-        return Response({'status': 'Invalid request', 
-                         'error': 'Room does not exist'})
-
