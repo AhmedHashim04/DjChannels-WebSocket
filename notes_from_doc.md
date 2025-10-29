@@ -35,3 +35,10 @@ Daphane/Uvicorn --> ASGI  , Gunicorn/uWSGI --> WSGI
 الاتصال بيكون عبارة عن “قناة ثنائية الاتجاه” بين العميل والسيرفر،
 والاتنين بيعملوا حاجة اسمها heartbeat / ping-pong كل فترة صغيرة.
 وده كله بيحصل تلقائي في طبقة WebSocket (مش لازم تبرمجه بنفسك).
+
+فـ /ws/chat/ مجرد مسار (route)
+زي ما بتقول في Django العادي /api/users/ أو /products/.
+    path("ws/chat/<str:room_name>/", consumers.ChatConsumer.as_asgi()),
+
+re_path()
+تعبيرات منتظمة (Regular Expressions)

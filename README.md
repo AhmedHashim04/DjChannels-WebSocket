@@ -12,6 +12,10 @@ pip install django djangorestframework channels_redis channels
 django-admin startproject project .
 ```
 
-![alt text](<image copy.png>) ![alt text](image.png)
-
 ![alt text](code.png)
+![alt text](image-copy-2.png)
+![alt text](image-copy-3.png)
+![alt text](image-copy-4.png)
+![alt text](screenshot-auto_1761713208.png)
+![alt text](<image-copy.png>) 
+![alt text](image.png)
