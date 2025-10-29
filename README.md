@@ -19,3 +19,4 @@ django-admin startproject project .
 ![alt text](screenshot-auto_1761713208.png)
 ![alt text](<image-copy.png>) 
 ![alt text](image.png)
+![alt text](image-prob.png)
