@@ -11,3 +11,7 @@ source .venv/bin/activate
 pip install django djangorestframework channels_redis channels
 django-admin startproject project .
 ```
+
+![alt text](<image copy.png>) ![alt text](image.png)
+
+![alt text](code.png)

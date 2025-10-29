@@ -49,8 +49,8 @@ def get_messages(request, room_name):
 
     if cached_messages:
         return Response({'messages': cached_messages})
-    messages = Message.objects.filter(room__name=room_name).order_by('-created_at')[:10]
-    messages_list = [message.content for message in messages]
+    messages = Message.objects.filter(room__name=room_name).order_by('-timestamp')[:10]
+    messages_list = [(message.timestamp, (message.sender), ":" + message.content) for message in messages] # Mini Serializer :)
 
     cache.set(cache_key, messages_list, timeout=300)  #  5m
     return Response({'messages': messages_list})
@@ -72,7 +72,7 @@ def send_message(request):
 
         # Update the cache for the room
         cache_key = f"room_{room_name}_messages"
-        
+
         cached_messages = cache.get(cache_key) or []
         cached_messages = [message.content] + cached_messages[:9]  # only last 10 messages
         cache.set(cache_key, cached_messages, timeout=300)
@@ -81,3 +81,4 @@ def send_message(request):
     except:
         return Response({'status': 'Invalid request', 
                          'error': 'Room does not exist'})
+

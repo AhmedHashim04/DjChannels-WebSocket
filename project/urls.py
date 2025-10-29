@@ -21,7 +21,7 @@ from app.views import create_room, get_rooms, get_messages
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('create-room/', create_room, name='create_room'),
-    path('get-rooms/', get_rooms, name='get_rooms'),
-    path('get-messages/<str:room_name>/', get_messages, name='get_messages'),
+    path('api/create-room/', create_room, name='create_room'),
+    path('api/get-rooms/', get_rooms, name='get_rooms'),
+    path('api/get-messages/<str:room_name>/', get_messages, name='get_messages'),
 ]
