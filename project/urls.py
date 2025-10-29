@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import create_room
+from app.views import create_room, get_rooms, get_messages
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('create-room/', create_room, name='create_room'),
+    path('get-rooms/', get_rooms, name='get_rooms'),
+    path('get-messages/<str:room_name>/', get_messages, name='get_messages'),
 ]
